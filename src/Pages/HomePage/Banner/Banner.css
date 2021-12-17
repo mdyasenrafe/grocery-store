@@ -1,0 +1,25 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-text {
+  color: black !important;
+}
+.banner-text h1 {
+  color: #202435 !important;
+  font-size: 60px;
+}
+.price-text-size {
+  font-size: 30px;
+  font-weight: bold;
+}
+.carousel-control-next {
+  display: none;
+}
+.carousel-control-prev {
+  display: none;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: red;
+}
