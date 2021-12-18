@@ -17,6 +17,7 @@ import DashboardHome from "./Pages/DashBoard/DashboardHome/DashboardHome";
 import Dashboard from "./Pages/DashBoard/Dashboard/Dashboard";
 import Pay from "./Pages/DashBoard/User/Pay/Pay";
 import MyOrders from "./Pages/DashBoard/User/MyOrders/MyOrders";
+import AddReview from "./Pages/DashBoard/User/AddReview/AddReview";
 function App() {
   return (
     <AuthProvider>
@@ -66,6 +67,11 @@ function App() {
               exact
               path="/dashboard/my-orders"
               element={<MyOrders />}
+            ></Route>
+            <Route
+              exact
+              path="/dashboard/add-review"
+              element={<AddReview use />}
             ></Route>
           </Route>
           <Route path="/home" element={<Home />}></Route>

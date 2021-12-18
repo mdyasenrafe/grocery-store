@@ -4,6 +4,7 @@ import { Form, Row, Col, FloatingLabel } from "react-bootstrap";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import swal from "sweetalert";
 import UseAuth from "../../../Hooks/UseAuth";
+import axios from "axios";
 
 const Resigter = () => {
   const {
@@ -40,11 +41,17 @@ const Resigter = () => {
         updateUserInfo(data.name);
         setError("");
         setIsLoading(false);
-        swal(
-          "Good job!",
-          "Your Aceount is Succesfully Resigter now",
-          "success"
-        );
+        axios
+          .post("https://radiant-reaches-94589.herokuapp.com/users", data)
+          .then((res) => {
+            if (res.data.acknowledged) {
+              swal(
+                "Good job!",
+                "Your Aceount is Succesfully Resigter now",
+                "success"
+              );
+            }
+          });
       })
       .catch((error) => {
         setError(error.message);
@@ -59,6 +66,13 @@ const Resigter = () => {
         setUser(res?.user);
         navigate(redirectUrl);
         swal("Good job!", "Your Aceount is Succesfully Log in now", "success");
+        const data = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+        };
+        axios.put("http://localhost:5000/users", data).then((res) => {
+          console.log("aceount create suceefully");
+        });
       })
       .catch((error) => {})
       .finally(() => setIsLoading(false));

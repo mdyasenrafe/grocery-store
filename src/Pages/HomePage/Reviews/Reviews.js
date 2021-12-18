@@ -5,16 +5,21 @@ import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, { Navigation } from "swiper/core";
 import SingleReview from "../SingleReview/SingleReview";
+import LoadingSpiner from "../../Shared/LoadingSpiners/LoadingSpiners";
 
 SwiperCore.use([Navigation]);
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://cryptic-plains-45363.herokuapp.com/reviews")
+    fetch("https://radiant-reaches-94589.herokuapp.com/reviews")
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => {
+        setReviews(data);
+        setLoading(false);
+      });
   }, []);
   return (
     <div className="py-5 container">
@@ -24,18 +29,22 @@ const Reviews = () => {
           <span className="text-red"> Reviews</span>
         </h1>
       </div>
-      <Swiper
-        navigation={true}
-        slidesPerView={"auto"}
-        spaceBetween={30}
-        className="mySwiper"
-      >
-        {reviews.map((data) => (
-          <SwiperSlide key={data._id}>
-            <SingleReview data={data}></SingleReview>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {loading ? (
+        <LoadingSpiner loading={loading} />
+      ) : (
+        <Swiper
+          navigation={true}
+          slidesPerView={"auto"}
+          spaceBetween={30}
+          className="mySwiper"
+        >
+          {reviews.map((data) => (
+            <SwiperSlide key={data._id}>
+              <SingleReview data={data}></SingleReview>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 };

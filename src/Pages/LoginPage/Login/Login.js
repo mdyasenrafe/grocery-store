@@ -5,6 +5,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import swal from "sweetalert";
 import UseAuth from "../../../Hooks/UseAuth";
 import UseFirebase from "../../../Hooks/UseFirebase";
+import axios from "axios";
 
 const Login = () => {
   // use form
@@ -49,6 +50,13 @@ const Login = () => {
         setUser(res?.user);
         navigate(redirectUrl);
         swal("Good job!", "Your Aceount is Succesfully Log in now", "success");
+        const data = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+        };
+        axios.put("http://localhost:5000/users", data).then((res) => {
+          console.log("aceount create suceefully");
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;

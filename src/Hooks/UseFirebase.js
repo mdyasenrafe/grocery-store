@@ -17,6 +17,7 @@ firebaseInitAuth();
 const UseFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
   const auth = getAuth();
 
@@ -75,6 +76,14 @@ const UseFirebase = () => {
         setError(error.message);
       });
   };
+  // admin check
+  useEffect(() => {
+    fetch(`https://cryptic-plains-45363.herokuapp.com/users/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+      });
+  }, [user?.email]);
   return {
     handleWithGoogle,
     user,

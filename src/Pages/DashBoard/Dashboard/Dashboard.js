@@ -8,7 +8,7 @@ const Dashboard = () => {
       <section>
         <Row>
           <Col xs={12} md={3}>
-            <div className="bg-dark h-100 text-light py-5">
+            <div className="bg-dark h-100 text-light py-5 px-3">
               <ul className="list-unstyled">
                 <li>
                   <Link
