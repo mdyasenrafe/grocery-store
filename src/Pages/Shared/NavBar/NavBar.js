@@ -22,13 +22,17 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/cart">
               Cart
             </Nav.Link>
+
             {user?.displayName ? (
-              <div>
+              <>
+                <Nav.Link as={Link} to="/dashboard/dashboard-home">
+                  DashBoard
+                </Nav.Link>
                 <span>{user?.displayName}</span>
                 <button className="btn bg-red" onClick={logOut}>
                   Logout
                 </button>
-              </div>
+              </>
             ) : (
               <Nav.Link as={Link} to="/login">
                 Log in

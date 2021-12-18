@@ -5,7 +5,6 @@ import "./SingleBestSeller.css";
 
 const SingleBestSeller = (props) => {
   const { name, photo, price, _id } = props.data;
-  console.log(props.data);
   return (
     <Col>
       <Card className="h-100 mt-3 products-card ">

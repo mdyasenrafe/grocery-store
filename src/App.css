@@ -16,3 +16,13 @@ body {
   border-color: #ed174a !important;
   color: #fff !important;
 }
+.cursor-pointor {
+  cursor: pointer;
+}
+.coustom-nav-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+}
