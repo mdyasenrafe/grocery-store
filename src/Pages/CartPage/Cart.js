@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
@@ -58,44 +58,55 @@ const Cart = () => {
           You <span className="text-red">Cart</span>
         </h1>
       </div>
-      {filterMyCart?.length > 0 ? (
+      {filterMyCart ? (
         <>
-          {filterMyCart?.map((data) => (
-            <SingleCart
-              data={data}
-              key={data._id}
-              handleDelete={handleDelete}
-            ></SingleCart>
-          ))}
-          <div className="py-5">
-            <div className="d-flex justify-content-between">
-              <h5>Total :</h5> <h5 className="fw-bolder">$ {price}</h5>
-            </div>
+          {filterMyCart?.length > 0 ? (
+            <>
+              {filterMyCart?.map((data) => (
+                <SingleCart
+                  data={data}
+                  key={data._id}
+                  handleDelete={handleDelete}
+                ></SingleCart>
+              ))}
+              <div className="py-5">
+                <div className="d-flex justify-content-between">
+                  <h5>Total :</h5> <h5 className="fw-bolder">$ {price}</h5>
+                </div>
+                <div>
+                  <div className="d-flex justify-content-between">
+                    <h5> Tax :</h5>{" "}
+                    <h5 className="fw-bolder">${tax.toFixed(2)}</h5>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <h5> Delivery Fee :</h5>{" "}
+                    <h5 className="fw-bolder">${deliveryFee}</h5>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <h5> Grand Total : </h5>
+                    <h5 className="fw-bolder">
+                      ${(tax + price + deliveryFee).toFixed(2)}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div className="py-4 text-center">
+                <Link to="/checkout">
+                  <button className="btn bg-red w-100">
+                    Proceed to checkout
+                  </button>
+                </Link>
+              </div>
+            </>
+          ) : (
             <div>
-              <div className="d-flex justify-content-between">
-                <h5> Tax :</h5> <h5 className="fw-bolder">${tax.toFixed(2)}</h5>
-              </div>
-              <div className="d-flex justify-content-between">
-                <h5> Delivery Fee :</h5>{" "}
-                <h5 className="fw-bolder">${deliveryFee}</h5>
-              </div>
-              <div className="d-flex justify-content-between">
-                <h5> Grand Total : </h5>
-                <h5 className="fw-bolder">
-                  ${(tax + price + deliveryFee).toFixed(2)}
-                </h5>
-              </div>
+              <h1>Nothing To Cart</h1>
             </div>
-          </div>
-          <div className="py-4 text-center">
-            <Link to="/checkout">
-              <button className="btn bg-red w-100">Proceed to checkout</button>
-            </Link>
-          </div>
+          )}
         </>
       ) : (
-        <div>
-          <h1>Nothing To Cart</h1>
+        <div className="text-center my-5">
+          <Spinner animation="border" variant="danger" />
         </div>
       )}
     </Container>

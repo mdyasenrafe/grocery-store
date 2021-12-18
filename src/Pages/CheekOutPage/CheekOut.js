@@ -29,6 +29,9 @@ const CheckOut = () => {
   let onSubmit = (data) => {
     data["status"] = "pending";
     data["productId"] = filterMyCart.map((data) => data.productId);
+    data["productName"] = filterMyCart.map((data) => data.productName);
+    data["productQuantity"] = filterMyCart.map((data) => data.quantity);
+    data["productPrice"] = filterMyCart.map((data) => data.price);
     axios.post("http://localhost:5000/orders", data).then((res) => {
       if (res.data.acknowledged) {
         swal(

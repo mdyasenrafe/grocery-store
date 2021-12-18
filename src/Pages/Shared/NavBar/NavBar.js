@@ -25,7 +25,7 @@ const NavBar = () => {
 
             {user?.displayName ? (
               <>
-                <Nav.Link as={Link} to="/dashboard/dashboard-home">
+                <Nav.Link as={Link} to="/dashboard">
                   DashBoard
                 </Nav.Link>
                 <span>{user?.displayName}</span>

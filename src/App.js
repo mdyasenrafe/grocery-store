@@ -15,6 +15,8 @@ import NewProducts from "./Pages/HomePage/NewProducts/NewProducts";
 import Footer from "./Pages/Shared/Footer/Footer";
 import DashboardHome from "./Pages/DashBoard/DashboardHome/DashboardHome";
 import Dashboard from "./Pages/DashBoard/Dashboard/Dashboard";
+import Pay from "./Pages/DashBoard/User/Pay/Pay";
+import MyOrders from "./Pages/DashBoard/User/MyOrders/MyOrders";
 function App() {
   return (
     <AuthProvider>
@@ -42,17 +44,28 @@ function App() {
             }
           ></Route>
           <Route
-            path="/dashboard/dashboard-home"
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <CheckOut />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/dashboard"
             element={
               <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
             }
           >
+            <Route exact path="/dashboard" element={<DashboardHome />}></Route>
+
+            <Route exact path="/dashboard/pay" element={<Pay />}></Route>
             <Route
               exact
-              path="/dashboard/dashboard-home"
-              element={<DashboardHome></DashboardHome>}
+              path="/dashboard/my-orders"
+              element={<MyOrders />}
             ></Route>
           </Route>
           <Route path="/home" element={<Home />}></Route>
