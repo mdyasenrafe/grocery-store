@@ -33,15 +33,6 @@ const UseFirebase = () => {
   const hanldleSignInEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-  // observer hook
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      }
-      setIsLoading(false);
-    });
-  }, [user]);
   // log out function
   const logOut = () => {
     swal({
@@ -76,14 +67,28 @@ const UseFirebase = () => {
         setError(error.message);
       });
   };
-  // admin check
+
   useEffect(() => {
-    fetch(`https://cryptic-plains-45363.herokuapp.com/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAdmin(data.admin);
-      });
-  }, [user?.email]);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        // admin check
+
+        fetch(
+          `https://radiant-reaches-94589.herokuapp.com/users/${user?.email}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setAdmin(data.admin);
+            if (user?.email === "admin@admin.com") {
+              setAdmin(true);
+            }
+          });
+      }
+      setIsLoading(false);
+    });
+  }, [user]);
+
   return {
     handleWithGoogle,
     user,
@@ -96,6 +101,7 @@ const UseFirebase = () => {
     updateUserInfo,
     error,
     setError,
+    admin,
   };
 };
 

@@ -54,9 +54,11 @@ const Login = () => {
           name: res?.user?.displayName,
           email: res?.user?.email,
         };
-        axios.put("http://localhost:5000/users", data).then((res) => {
-          console.log("aceount create suceefully");
-        });
+        axios
+          .put("https://radiant-reaches-94589.herokuapp.com/users", data)
+          .then((res) => {
+            console.log("aceount create suceefully");
+          });
       })
       .catch((error) => {
         const errorMessage = error.message;

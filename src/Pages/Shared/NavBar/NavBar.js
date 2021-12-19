@@ -11,7 +11,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/home">
-          React-Bootstrap
+          <img src="https://i.ibb.co/ZghmB82/large.png" alt="" srcset="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
