@@ -101,12 +101,18 @@ const ManageAllOrders = () => {
                       </td>
                       <td>
                         {data?.status} <br />
-                        <button
-                          onClick={() => handleApporve(data)}
-                          className="btn bg-red"
-                        >
-                          Apporve
-                        </button>
+                        {data?.status === "apporve" ? (
+                          <button className="btn bg-red mx-3" disabled>
+                            Apporve
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleApporve(data)}
+                            className="btn bg-red mx-3"
+                          >
+                            Apporve
+                          </button>
+                        )}
                       </td>
                     </tr>
                   </tbody>
