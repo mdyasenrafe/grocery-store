@@ -1,4 +1,4 @@
-# grocery-store-server
+# grocery-store
 
 ## About
 
@@ -33,5 +33,5 @@ password : 123456
 - Express
 - MongoDb
 
-[Font End Repo Link](https://github.com/mdyasenrafe/grocery-store/)
+[Font End Repo Link](https://github.com/mdyasenrafe/grocery-store/) ||
 [Back End Repo Link](https://github.com/mdyasenrafe/grocery-store-server)
