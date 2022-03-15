@@ -3,7 +3,7 @@
 ## About
 
 grocery-store is online grocery store. It is a MERN Stack Project.Users can Log in to this website.User Can Show Products and Review in Homepage.User Can Show Products and Review in Homepage. When the user clicks the products then the user show product details, then users add to carts. the cart data were saved in MongoDB.Users Can Show his order history. Users can review the website.If admin login Admin can make a user admin, can manage all products as well as
-manage all orders[live websilte](https://grocery-store-30.web.app/)
+manage all orders[live websilte].(https://grocery-store-30.web.app/)
 
 ## testting
 
