@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   let [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://radiant-reaches-94589.herokuapp.com/orders")
+    fetch("https://grocery-store-api-y99i.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setOrders(data.data);
@@ -29,7 +29,7 @@ const ManageAllOrders = () => {
       if (willDelete) {
         axios
           .put(
-            `https://radiant-reaches-94589.herokuapp.com/orders/${data._id}`,
+            `https://grocery-store-api-y99i.onrender.com/orders/${data._id}`,
             data
           )
           .then((res) => {

@@ -14,7 +14,7 @@ const Reviews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://radiant-reaches-94589.herokuapp.com/reviews")
+    fetch("https://grocery-store-api-y99i.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

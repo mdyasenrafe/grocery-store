@@ -17,7 +17,7 @@ const MakeAdmin = () => {
   const onSubmit = (data) => {
     data["role"] = "admin";
     axios
-      .put(`https://radiant-reaches-94589.herokuapp.com/users/admin`, data)
+      .put(`https://grocery-store-api-y99i.onrender.com/users/admin`, data)
       .then((res) => {
         if (res?.data?.modifiedCount > 0) {
           swal("Your Aceount is Admin Now", {

@@ -25,7 +25,7 @@ const Cart = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`https://radiant-reaches-94589.herokuapp.com/cart/${id}`, {
+        fetch(`https://grocery-store-api-y99i.onrender.com/cart/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

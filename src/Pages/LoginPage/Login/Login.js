@@ -55,7 +55,7 @@ const Login = () => {
           email: res?.user?.email,
         };
         axios
-          .put("https://radiant-reaches-94589.herokuapp.com/users", data)
+          .put("https://grocery-store-api-y99i.onrender.com/users", data)
           .then((res) => {
             console.log("aceount create suceefully");
           });

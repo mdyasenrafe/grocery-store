@@ -33,7 +33,7 @@ const CheckOut = () => {
     data["productQuantity"] = filterMyCart.map((data) => data.quantity);
     data["productPrice"] = filterMyCart.map((data) => data.price);
     axios
-      .post("https://radiant-reaches-94589.herokuapp.com/orders", data)
+      .post("https://grocery-store-api-y99i.onrender.com/orders", data)
       .then((res) => {
         if (res.data.acknowledged) {
           swal(
@@ -46,7 +46,7 @@ const CheckOut = () => {
       });
     //   console.log(typeof user?.email);
     fetch(
-      `https://radiant-reaches-94589.herokuapp.com//${user?.email.trim()}`,
+      `https://grocery-store-api-y99i.onrender.com//${user?.email.trim()}`,
       {
         method: "DELETE",
       }

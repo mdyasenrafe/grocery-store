@@ -22,7 +22,7 @@ const SingleCart = (props) => {
   const onSubmit = (data) => {
     data["quantity"] = editQuantity;
     axios
-      .put(`https://radiant-reaches-94589.herokuapp.com/cart/${_id}`, data)
+      .put(`https://grocery-store-api-y99i.onrender.com/cart/${_id}`, data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           swal(

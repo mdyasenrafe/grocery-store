@@ -6,7 +6,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
     const response = await fetch(
-      "https://radiant-reaches-94589.herokuapp.com/products"
+      "https://grocery-store-api-y99i.onrender.com/products"
     ).then((res) => res.json());
     return response.data;
   }
@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
 // fetch cart
 export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
   const response = await fetch(
-    "https://radiant-reaches-94589.herokuapp.com/cart"
+    "https://grocery-store-api-y99i.onrender.com/cart"
   ).then((res) => res.json());
   return response.data;
 });

@@ -75,7 +75,7 @@ const UseFirebase = () => {
         // admin check
 
         fetch(
-          `https://radiant-reaches-94589.herokuapp.com/users/${user?.email}`
+          `https://grocery-store-api-y99i.onrender.com/users/${user?.email}`
         )
           .then((res) => res.json())
           .then((data) => {

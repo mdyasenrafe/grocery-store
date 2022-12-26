@@ -16,7 +16,7 @@ const AddReview = () => {
   let navigate = useNavigate();
   const onSubmit = (data) => {
     axios
-      .post("https://radiant-reaches-94589.herokuapp.com/reviews", data)
+      .post("https://grocery-store-api-y99i.onrender.com/reviews", data)
       .then((res) => {
         if (res.data.acknowledged) {
           swal("Your Review has been Added", {

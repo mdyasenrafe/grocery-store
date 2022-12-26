@@ -8,7 +8,7 @@ const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
   let [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://radiant-reaches-94589.herokuapp.com/orders")
+    fetch("https://grocery-store-api-y99i.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setMyOrders(data.data);

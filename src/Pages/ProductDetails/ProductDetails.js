@@ -45,7 +45,7 @@ const ProductDetails = () => {
     data["userName"] = user?.displayName;
     console.log("handle submit", data);
     axios
-      .post("https://radiant-reaches-94589.herokuapp.com/cart", data)
+      .post("https://grocery-store-api-y99i.onrender.com/cart", data)
       .then((res) => {
         if (res.data.acknowledged) {
           navigate("/cart");
